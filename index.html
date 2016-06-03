@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>form wizardry</title>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="bower_components/Materialize/bin/materialize.css">	
 
@@ -17,14 +17,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col l12">
-				<form action="" method="POST">
+				<form action="" method="POST" class="form2wiz">
 					<fieldset title="Field 1">
 						<legend>Form Frame 1</legend>
 						<div class="input-field"> 
 							<div class="form-group">
-								<label class="control-label" for="">label</label>
+								
 								<span class="help-block"></span>
-								<input type="text" class="form-control" id="" placeholder="Input field">
+								<input type="text" class="form-control" id="one" placeholder="Input field">
+								<label class="control-label" for="#one">label</label>
+							</div>
+						</div>
+						<div class="input-field"> 
+							<div class="form-group">
+								<label class="control-label" for="#two">label</label>
+								<span class="help-block"></span>
+								<input type="text" class="form-control" id="two" placeholder="Input field">
 							</div>
 						</div>
 						<div class="input-field"> 
@@ -33,14 +41,7 @@
 								<span class="help-block"></span>
 								<input type="text" class="form-control" id="" placeholder="Input field">
 							</div>
-						</div>
-						<div class="input-field"> 
-							<div class="form-group">
-								<label class="control-label" for="">label</label>
-								<span class="help-block"></span>
-								<input type="text" class="form-control" id="" placeholder="Input field">
-							</div>
-							<div class="form-group">
+							<div class="input-field">
 								<label class="control-label" for="">label</label>
 								<span class="help-block"></span>
 								<input type="text" class="form-control" id="" placeholder="Input field">
@@ -59,9 +60,10 @@
 						</div>
 						<div class="input-field"> 
 							<div class="form-group">
-								<label class="control-label" for="">label</label>
+								
 								<span class="help-block"></span>
 								<input type="text" class="form-control" id="" placeholder="Input field">
+								<label class="control-label" for="">label</label>
 							</div>
 						</div>
 
@@ -98,8 +100,11 @@
 							</div>
 						</div>
 					</fieldset>
-					
-					<button type="submit" id="submit" class="waves-effect btn">label</button>
+					<div class="input-field">
+						<div class="form-group">
+							<button type="submit" id="submit" class="waves-effect btn">Submit</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -108,66 +113,6 @@
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<!-- Compiled and minified JavaScript -->
 	<script src="bower_components/Materialize/bin/materialize.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			var steps = $("form fieldset");
-			var count = steps.size();
-
-			$("#submit").hide();
-			$("form").before("<ul class='inline' id='steps'></ul>");
-			
-			steps.each(function(i) {
-
-				 var name = $(this).find("legend").html();
-    			$("#steps").append("<li id='stepDesc" + i + "'>Step " + (i + 1) + ": <span>" + name + "</span></li>");
-
-			    $(this).wrap("<div id='step" + i + "'></div>");
-			    $(this).append("<p id='step" + i + "commands'></p>");
-
-			    if (i == 0) {
-			        createNextButton(i);        // to do
-			        selectStep(i);              // to do
-			    }
-			    else if (i == count - 1) {
-			        $("#step" + i).hide();
-			        createPrevButton(i);       // to do
-			    }
-			    else {
-			        $("#step" + i).hide();
-			        createPrevButton(i);       // to do
-			        createNextButton(i);       // to do
-			    }
-			})
-
-			function createPrevButton(i) {
-
-			    var stepName = "step" + i;
-
-			    $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Prev' class='prev btn'>< Back</a>");
-
-			    $("#" + stepName + "Prev").bind("click", function(e) {
-			        $("#" + stepName).hide();
-			        $("#step" + (i - 1)).show();
-			        selectStep(i - 1);
-			    });
-			}
-
-			function createNextButton(i) {
-			    var stepName = "step" + i;
-			    $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class='next btn'>Next ></a>");
-			    $("#" + stepName + "Next").bind("click", function(e) {
-			        $("#" + stepName).hide();
-			        $("#step" + (i + 1)).show();
-			        selectStep(i + 1);
-			    });
-			}
-
-			function selectStep(i) {
-			    $("#steps li").removeClass("current");
-			    $("#stepDesc" + i).addClass("current");
-			}
-		});
-		
-	</script>
+	<script src="wizardMaker.js"></script>
 </body>
 </html>
