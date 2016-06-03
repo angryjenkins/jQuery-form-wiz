@@ -1,0 +1,26 @@
+{
+  "name": "jQueryWizard",
+  "authors": [
+    "m. nathaniel martin <matt.martin@rutgers.edu>"
+  ],
+  "description": "jQuery wizard built from scratch with http://www.jankoatwarpspeed.com/turn-any-webform-into-a-powerful-wizard-with-jquery-formtowizard-plugin/",
+  "main": "index.html",
+  "keywords": [
+    "form",
+    "wizard",
+    "jQUery"
+  ],
+  "license": "MIT",
+  "homepage": "www.angryjenkins.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6"
+  }
+}
